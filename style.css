@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive */
+@media screen and (max-width:576px){
+    #dynamic-videos{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
