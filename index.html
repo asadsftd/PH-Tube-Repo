@@ -5,9 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1 class="text-6xl">Hellow</h1>
+    <header>
+        <nav class="w-11/12 mx-auto border-b-2
+         border-b-[#17171720] py-3 flex items-center justify-between">
+            <div>
+                <img src="assects/Logo.png" alt="" class="w-[130px]">
+            </div>
+            <div>
+            <label class="input">
+            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g
+      stroke-linejoin="round"
+      stroke-linecap="round"
+      stroke-width="2.5"
+      fill="none"
+      stroke="currentColor"
+    >
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.3-4.3"></path>
+    </g>
+  </svg>
+  <input  type="search" required placeholder="Search" />
+</label>
+            </div>
+            <div>
+                <button class="bg-[#FF1F3D] text-white p-4 
+                rounded-md btn btn-xs text-2xl ">Sort By</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="w-11/12 mx-auto mt-12">
+        <section>
+            <div id="dynamic-buttons" class="flex items-center justify-center gap-5">
+                 <button class="bg-[#FF1F3D] text-white p-4 
+                rounded-md btn btn-xs text-2xl ">All</button>
+                 
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="style.js"></script>
 </body>
 </html>
