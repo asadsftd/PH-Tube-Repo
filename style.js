@@ -103,7 +103,9 @@ const dynamicButtonsLoad = (buttons)=>{
             <p>${video.others.views}</p>
         </div>
     </div>
+    <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-xs text-xl py-4">Show Details</button>
   </div>
+ 
 </div>
                 
                 
@@ -113,6 +115,37 @@ const dynamicButtonsLoad = (buttons)=>{
                 dynamicVideosContainer.appendChild(div);
             }
         }
+    // 
+        const loadVideoDetails = (videoId)=>{
+            console.log(videoId);
+            const url=`https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`;
+            fetch(url)
+            .then(res=>res.json())
+            .then(data=>{
+                loadModalDetails(data.video)
+            })
+        }
+        const loadModalDetails = (videoss)=>{
+            console.log(videoss);
+            document.getElementById("my_modal_1").showModal();
+            const detailsContainer=document.getElementById("details-container");
+            detailsContainer.innerHTML=`
+            <div class="card bg-base-100 image-full w-auto shadow-sm">
+  <figure>
+    <img
+      src="${videoss.thumbnail}" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">${videoss.title}</h2>
+    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    
+  </div>
+</div>
+            
+            
+            `;
+        }
+
     // 
 buttons();
 
