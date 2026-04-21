@@ -1,5 +1,6 @@
-label:focus{
-    outline: none;
+.active{
+    background-color: #FF1F3D;
+    color: white;
 }
 
 

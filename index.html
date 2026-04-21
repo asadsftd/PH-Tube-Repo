@@ -11,7 +11,7 @@
 <body>
     <header>
 
-        
+
         <nav id="nav" class="w-11/12 mx-auto border-b-2
          border-b-[#17171720] py-3 flex items-center justify-between">
             <div>
@@ -44,7 +44,7 @@
     <main class="w-11/12 mx-auto mt-12">
         <section>
             <div id="dynamic-buttons" class="flex items-center justify-center gap-5">
-                 <button onclick="videos()" class="bg-[#FF1F3D] text-white p-4 
+                 <button id="all" onclick="videos()" class="hover:bg-[#FF1F3D] hover:text-white p-4 
                 rounded-md btn btn-xs text-2xl ">All</button>
                  
             </div>
@@ -52,7 +52,11 @@
         <section class="mt-20">
             <div id="dynamic-videos" class="grid grid-cols-4 gap-6">
                     <!--  -->
-
+                        <div class="col-span-full ">
+                            <img class="mx-auto" src="assects/Icon.png" alt="">
+                            <h2 class="text-4xl text-center">Oops!! Sorry, There is no content here</h2>
+                            
+                        </div>
                     <!--  -->
             </div>
         </section>

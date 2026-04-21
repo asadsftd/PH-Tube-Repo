@@ -14,7 +14,7 @@ const dynamicButtonsLoad = (buttons)=>{
         const buttonsContainer = document.getElementById("dynamic-buttons");
         const div = document.createElement("div");
         div.innerHTML = `
-         <button onclick="loadId(${button.category_id})" class=" hover:bg-[#FF1F3D] hover:text-white
+         <button id="btn-${button.category_id}" onclick="loadId(${button.category_id})" class=" hover:bg-[#FF1F3D] hover:text-white
          rounded-md btn btn-xs text-2xl p-4 ">${button.category}</button>
         
         
@@ -31,16 +31,34 @@ const dynamicButtonsLoad = (buttons)=>{
                 fetch(urls)
                 .then(res=>res.json())
                 .then(data=>{
+                    
+                   removeActive ()
+                  
+                    // active classs
+                    const btn=document.getElementById(`btn-${id}`);
+                   
+                    btn.classList.add('active');
+                   
                     dynamicVideos(data.category)
                 })
             }
+            // remove class 
+            function removeActive (){
+                const activeButtons=document.getElementsByClassName("active");
+                for(let btn of activeButtons){
+                    btn.classList.remove('active');
+                    
+                }
+            }
 
+            // 
         // 
     // dynamic loaded videos
         function videos (){
             fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
             .then(res=>res.json())
             .then(data=>{
+                document.getElementById("all").classList.add('active');
                 dynamicVideos(data.videos);
             })
         }
@@ -49,6 +67,16 @@ const dynamicButtonsLoad = (buttons)=>{
             console.log(videos);
             const dynamicVideosContainer = document.getElementById("dynamic-videos");
             dynamicVideosContainer.innerHTML="";
+            if(videos.length==0){
+                dynamicVideosContainer.innerHTML=`
+                 <div class="col-span-full ">
+                            <img class="mx-auto" src="assects/Icon.png" alt="">
+                            <h2 class="text-4xl text-center">Oops!! Sorry, There is no content here</h2>
+                            
+                        </div>
+                `;
+                return;
+            }
             for(let video of videos){
                 console.log(video);
                 const div = document.createElement("div");
