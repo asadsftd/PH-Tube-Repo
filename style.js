@@ -43,10 +43,21 @@ const dynamicButtonsLoad = (buttons)=>{
       src="${video.thumbnail}" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+    <h2 class="card-title">${video.title}</h2>
+    <div class="flex gap-3">
+        <div>
+            <div class="avatar">
+  <div class="ring-primary ring-offset-base-100 w-7 rounded-full ">
+    <img src="${video.authors[0].profile_picture}" />
+  </div>
+</div>
+        </div>
+        <div>
+            <h1>Building a Winning UX Strategy</h1>
+            <h1>Using the Kano Model</h1>
+            <p>${video.authors[0].profile_name}</p>
+            <p>${video.others.views}</p>
+        </div>
     </div>
   </div>
 </div>
@@ -77,3 +88,17 @@ buttons();
 // category_id
 // : 
 // "1001"
+
+
+// // authors
+// 0
+// // : 
+// // {profile_picture: 'https://i.ibb.co/YZN9rQZ/tina.jpg', profile_name: 'Tina Fey', verified: false}
+// // length
+// // : 
+// // 1
+
+
+// others
+// : 
+// {views: '241K', posted_date: ''}
