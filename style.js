@@ -7,13 +7,14 @@ function buttons (){
     })
 }
 const dynamicButtonsLoad = (buttons)=>{
+
     console.log(buttons);
     for(let button of buttons){
         console.log(button);
         const buttonsContainer = document.getElementById("dynamic-buttons");
         const div = document.createElement("div");
         div.innerHTML = `
-         <button class=" hover:bg-[#FF1F3D] hover:text-white
+         <button onclick="loadId(${button.category_id})" class=" hover:bg-[#FF1F3D] hover:text-white
          rounded-md btn btn-xs text-2xl p-4 ">${button.category}</button>
         
         
@@ -22,6 +23,19 @@ const dynamicButtonsLoad = (buttons)=>{
     }
 }
 // 
+        // loadeId
+            const loadId = (id)=>{
+                console.log(id);
+
+                const urls = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
+                fetch(urls)
+                .then(res=>res.json())
+                .then(data=>{
+                    dynamicVideos(data.category)
+                })
+            }
+
+        // 
     // dynamic loaded videos
         function videos (){
             fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
@@ -31,8 +45,10 @@ const dynamicButtonsLoad = (buttons)=>{
             })
         }
         const dynamicVideos = (videos)=>{
+            
             console.log(videos);
             const dynamicVideosContainer = document.getElementById("dynamic-videos");
+            dynamicVideosContainer.innerHTML="";
             for(let video of videos){
                 console.log(video);
                 const div = document.createElement("div");
