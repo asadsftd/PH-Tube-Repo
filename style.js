@@ -54,8 +54,8 @@ const dynamicButtonsLoad = (buttons)=>{
             // 
         // 
     // dynamic loaded videos
-        function videos (){
-            fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
+        function videos (searchText=""){
+            fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
             .then(res=>res.json())
             .then(data=>{
                 document.getElementById("all").classList.add('active');
@@ -145,6 +145,11 @@ const dynamicButtonsLoad = (buttons)=>{
             
             `;
         }
+        document.getElementById("search-input")
+        .addEventListener("keyup", (e)=>{
+            const input = e.target.value;
+            videos(input);
+        })
 
     // 
 buttons();
